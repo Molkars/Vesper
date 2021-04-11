@@ -1,12 +1,12 @@
 package io.molkars.vesper.event.listeners;
 
-import com.sun.istack.NotNull;
 import io.molkars.vesper.Vesper;
 import io.molkars.vesper.database.model.VesperUser;
 import io.molkars.vesper.src.EventsListener;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

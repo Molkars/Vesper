@@ -30,7 +30,7 @@ public class IronGolemKillListener implements EventsListener {
     e.getDrops().clear();
 
     final int nuggetCount = 3 * ingotCount;
-    
+
     final Vesper vesper = Vesper.getInstance();
     List<ItemStack> flowers = new ArrayList<>(poppyCount);
     for (int i = 0; i < poppyCount; i++) {
