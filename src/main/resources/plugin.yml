@@ -1,0 +1,19 @@
+name: Vesper
+version: ${project.version}
+main: io.molkars.vesper.Vesper
+api-version: 1.16
+prefix: Vesper
+authors: [ Molkars, ScatteredSou1 ]
+description: A plugin I made
+
+commands:
+  shards:
+    description: View the amount of reality shards you have
+  tomeofreality:
+    aliases:
+      - tor
+    description: Use your reality points
+  voidstorage:
+    description: Store items in between realities
+    aliases:
+      - vs

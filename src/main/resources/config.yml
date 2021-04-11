@@ -1,0 +1,19 @@
+defaultToDatabaseMigrationComplete: false
+
+# MariaDB Database
+database:
+  host: localhost
+  port: 3306
+  database: minecraft
+  username: root
+  password: ''
+  tablePrefix: 'vesper_'
+
+tomeOfReality:
+  items:
+    voidStorage:
+      enalbed: true
+      initialLevel: 0
+    quantumAttachment:
+      enabled: true,
+      initialLevele: 0
