@@ -1,8 +1,8 @@
 package io.molkars.vesper;
 
-import io.molkars.vesper.event.VesperEventListener;
 import io.molkars.vesper.command.CommandHandler;
 import io.molkars.vesper.database.DatabaseHandler;
+import io.molkars.vesper.event.VesperEventListener;
 import io.molkars.vesper.src.VesperJavaPlugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
@@ -10,7 +10,8 @@ import org.bukkit.plugin.java.JavaPluginLoader;
 
 import javax.persistence.EntityManager;
 import java.io.File;
-import java.util.logging.Level;
+import java.security.SecureRandom;
+import java.util.Random;
 import java.util.logging.Logger;
 
 public final class Vesper extends VesperJavaPlugin {
@@ -19,6 +20,7 @@ public final class Vesper extends VesperJavaPlugin {
   public VesperEventListener eventListener;
   public EntityManager entityManager;
   public DatabaseHandler dbHandler;
+  public Random random = new SecureRandom();
 
   public Vesper() {
     super();
@@ -37,11 +39,11 @@ public final class Vesper extends VesperJavaPlugin {
       saveDefaultConfig();
     }
 
-    logger.setLevel(Level.FINE);
     dbHandler = new DatabaseHandler();
     entityManager = dbHandler.entityManager();
-    cmdHandler = new CommandHandler();
+
     eventListener = new VesperEventListener();
+    cmdHandler = new CommandHandler();
 
     cmdHandler.registerCommands();
     manager.registerEvents(eventListener, this);
