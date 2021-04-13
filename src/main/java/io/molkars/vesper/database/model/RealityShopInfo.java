@@ -1,7 +1,5 @@
 package io.molkars.vesper.database.model;
 
-import org.jetbrains.annotations.Nullable;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,47 +7,66 @@ import java.io.Serializable;
 @Table(name = "reality_shop_info")
 @SuppressWarnings("unused")
 public class RealityShopInfo implements Serializable {
-  public RealityShopInfo() {
-
-  }
 
   public RealityShopInfo(VesperUser user) {
+    associatedUser = user;
     id = user.uuid();
-    this.user = user;
+  }
+
+  protected RealityShopInfo() {
+
   }
 
   @Id
-  @Column(name = "id", length = 36, unique = true, nullable = false)
+  @Column(
+      name = "id",
+      columnDefinition = "char(36)",
+      length = 36,
+      nullable = false,
+      unique = true
+  )
   private String id;
 
-  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  @JoinColumn(name = "id")
-  private VesperUser user;
+  @OneToOne(
+      optional = false,
+      cascade = CascadeType.ALL,
+      fetch = FetchType.LAZY,
+      orphanRemoval = true
+  )
+  @JoinColumn(
+      name = "id",
+      columnDefinition = "char(36)",
+      nullable = false,
+      unique = true,
+      referencedColumnName = "uuid"
+  )
+  private VesperUser associatedUser;
 
-  @Column(name = "void_storage_level")
-  private Integer voidStorageLevel = 0;
+  @Column(
+      name = "void_storage_level",
+      nullable = false,
+      columnDefinition = "int"
+  )
+  private int voidStorageLevel = 0;
 
   public String id() {
     return id;
   }
-
-  public void id(String id) {
-    this.id = id;
+  public void id(String value) {
+    id = value;
   }
 
-  public VesperUser user() {
-    return user;
+  public VesperUser associatedUser() {
+    return associatedUser;
+  }
+  public void associatedUser(VesperUser value) {
+    associatedUser = value;
   }
 
-  public void user(VesperUser user) {
-    this.user = user;
-  }
-
-  public @Nullable Integer voidStorageLevel() {
+  public int voidStorageLevel() {
     return voidStorageLevel;
   }
-
-  public void voidStorageLevel(int voidStorageLevel) {
-    this.voidStorageLevel = voidStorageLevel;
+  public void voidStorageLevel(int value) {
+    voidStorageLevel = value;
   }
 }
