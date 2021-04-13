@@ -1,10 +1,7 @@
 package io.molkars.vesper.database;
 
-import io.molkars.vesper.database.model.RealityShopInfo;
-import io.molkars.vesper.database.model.VesperUser;
-import io.molkars.vesper.database.model.VoidStorageInventory;
-import io.molkars.vesper.database.model.VoidStorageItem;
 import io.molkars.vesper.Vesper;
+import io.molkars.vesper.database.model.*;
 import org.hibernate.cfg.Environment;
 import org.hibernate.dialect.MariaDBDialect;
 import org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl;
@@ -28,6 +25,7 @@ public class DatabaseHandler {
         VoidStorageInventory.class,
         VoidStorageItem.class,
         RealityShopInfo.class,
+        Home.class
     };
     final MariaDbDataSource datasource = new MariaDbDataSource();
     try {
