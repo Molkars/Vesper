@@ -27,7 +27,7 @@ public abstract class CommandBase implements CommandExecutor {
     return null;
   }
 
-  public @Nullable TabCompleter getCompleter() {
+  public @Nullable TabCompleter tabCompleter() {
     return null;
   }
 
@@ -44,7 +44,7 @@ public abstract class CommandBase implements CommandExecutor {
     command.setName(name);
     command.setExecutor(this);
     final String[] aliases = getAliases();
-    final TabCompleter completer = getCompleter();
+    final TabCompleter completer = tabCompleter();
     final EventsListener listener = getEventsListener();
 
     if (aliases != null)
