@@ -9,6 +9,15 @@ description: A plugin I made
 commands:
   shards:
     description: View the amount of reality shards you have
+  home:
+    description: Teleport you to one of your homes
+    usage: /home [home-name]
+  sethome:
+    description: Sets a home
+    usage: /sethome [home-name]
+  delhome:
+    description: Deletes a home
+    usage: /delhome {home-name}
   tomeofreality:
     aliases:
       - tor
